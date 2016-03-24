@@ -11,8 +11,7 @@
       var self = this;
 
       // This is the path to add to our source URL to get to the REST url's
-//      var WS_URL = 'ws/person/';
-      var WS_URL = 'https://angularcrudmaterial.firebaseio.com/data/';
+      var WS_URL = 'https://YOUR-APP.firebaseio.com/data/';
 
       self.getAll = function getAll() {
          return $http.get(WS_URL + '.json')
