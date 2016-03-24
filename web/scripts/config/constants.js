@@ -17,8 +17,8 @@
    ]);
  */
 
-// Set a default REST WS URL - Sample as a constant. This app sets it in the
-// two httpFactory files.
+// Set a default REST WS URL - Sample as a constant. This app sets it in
+// the two ApiService files.
 //
 //   angular.module("angularcrud").constant("URL", ); // Java/Jersey
 })();

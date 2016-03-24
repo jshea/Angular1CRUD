@@ -1,0 +1,9 @@
+{
+  "firebase": "angularcrudbootstrap",
+  "public": "web",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

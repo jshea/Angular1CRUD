@@ -5,20 +5,21 @@
 
    'use strict';
 
-   function LoadController($location, httpFactory, toaster) {
+   function LoadController($location, ApiService, UtilityService) {
 
       // Save a pointer to our current context
       var self = this;
 
       // Delete all existing data and reload our sample data
-      httpFactory.updateAll(
+      // TODO - Move this to a DataService call
+      ApiService.loadSeedData(
          // WS Success
          function (response) {
             $location.path('/');
          },
          // WS Failure
          function (response) {
-            toaster.pop('error', 'Web Service call failed', 'getAll ' + response.config.url + ' failed.');
+            UtilityService.showToastError('Web Service call failed - getAll ' + response.config.url + ' failed.');
          }
       );
    };
@@ -26,5 +27,5 @@
    // Register our controller
    angular
       .module('angularcrud')
-      .controller('LoadController', ['$location', 'httpFactory', 'toaster', LoadController]);
+      .controller('LoadController', ['$location', 'ApiService', 'UtilityService', LoadController]);
 })();

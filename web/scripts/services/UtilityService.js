@@ -1,25 +1,22 @@
 (function() {
    'use strict';
 
-   function UtilityService() {
+   function UtilityService(toaster) {
       var self = this;
 
-      // An array of state objects, abbreviation and name.
-      self.states = [];
+      /*   Toasts   */
 
-     /**
-      * Initialize/set the states value.
-      *
-      * @param {type} states
-      * @returns {undefined}
-      */
-      this.setStates = function(states) {
-         self.states = states;
+      self.showToastSuccess = function showToastSuccess(message) {
+         toaster.pop('success', 'Success', message, 2000);
+      };
+
+      self.showToastError = function showToastError(message) {
+         toaster.pop('error', message);
       };
 
    }
 
    angular
       .module('angularcrud')
-      .service('UtilityService', [UtilityService]);
+      .service('UtilityService', ['toaster', UtilityService]);
 })();

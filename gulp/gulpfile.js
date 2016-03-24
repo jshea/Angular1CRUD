@@ -20,7 +20,6 @@ var jsAppFiles = [
    "../web/scripts/config/routes.js",
    "../web/scripts/config/constants.js",            // This is before run.js as this may reset default constant values
    "../web/scripts/config/run.js",
-   "../web/scripts/filters/phoneNumber.js",
    "../web/components/PersonEdit/personEdit.js",
    "../web/components/PersonList/personList.js",
    "../web/components/PersonView/personView.js",
@@ -30,8 +29,11 @@ var jsAppFiles = [
    "../web/scripts/controllers/newController.js",
    "../web/scripts/controllers/settingsController.js",
    "../web/scripts/controllers/viewController.js",
+   "../web/scripts/filters/phoneNumber.js",
    "../web/scripts/filters/titleCase.js",
-   "../web/scripts/services/httpFactory.java.js",
+   "../web/scripts/services/ApiService.Firebase.js",
+//   "../web/scripts/services/ApiService.Java.js",
+   "../web/scripts/services/DataService.js",
    "../web/scripts/services/UtilityService.js"
 ];
 
@@ -84,7 +86,7 @@ gulp.task("debug-libs-js", function() {
 // CSS files - ours and 3rd party
 gulp.task("debug-css", function () {
    return gulp.src(cssFiles)                            // Get our css files (by directory and/or file name)
-              .pipe(gulpFilter("**/*.css"))             // Make sure we have just .css files (for directory globbing)
+//            .pipe(gulpFilter("**/*.css"))             // Make sure we have just .css files (for directory globbing)
               .pipe(basename({prefix: "../assets"}))    // Add "../assets" base name to CSS URLs (all images and fonts must be here)
               .pipe(concatCss("AngularCRUD.debug.css")) // Concatenate all .css files.
               .pipe(gulp.dest("../web/dist"));          // Put it with our other Bootstrap .css files.
