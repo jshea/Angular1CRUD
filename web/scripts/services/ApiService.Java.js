@@ -7,7 +7,7 @@
 
    'use strict';
 
-   function ApiService($http, $rootScope, $q) {
+   function ApiService($http, $q) {
       var self = this;
 
       // This is the path to add to our source URL to get to the REST url's
@@ -113,5 +113,5 @@
    // Register the service
    angular
       .module('angularcrud')
-      .service('ApiService', ['$http', '$rootScope', '$q', ApiService]);
+      .service('ApiService', ['$http', '$q', ApiService]);
 })();
