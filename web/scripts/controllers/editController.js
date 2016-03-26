@@ -20,10 +20,11 @@
          }
       );
 
-      // Listen for events emitted from our Person Edit component
+
+      /*   Listen for events emitted from our Person Edit component   */
 
       // Save button was clicked - Save person and view their new detail
-      $scope.$on('personSaved',
+      $scope.$on('personUpdate',
          function (event, person) {
             DataService.personUpdate(person,
                function(person) {
@@ -33,8 +34,8 @@
          }
       );
 
-      // Delete button clicked - Delete person and return to main scren
-      $scope.$on('personDeleted',
+      // Delete button clicked - Delete person and return to main screen
+      $scope.$on('personDelete',
          function (event, person) {
             DataService.personDelete(person.id,
                function() {

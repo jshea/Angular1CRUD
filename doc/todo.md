@@ -1,4 +1,4 @@
-## Todo list
+## Todo list - This needs updating!
 
 ### Validation
 * email address

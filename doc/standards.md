@@ -1,4 +1,4 @@
-# Standards, Practices and Patterns
+# Standards, Practices and Patterns - This needs updating!
 This currently is a set of patterns and coding practices you will find in this application.
 
 https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md

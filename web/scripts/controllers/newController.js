@@ -11,7 +11,7 @@
       self.person = {};    // Initialize the person object as an empty object
 
       // Add button was clicked - Save person and view their new detail
-      $scope.$on('personAdded',
+      $scope.$on('personAdd',
          function (event, person) {
             DataService.personAdd(person,
                function(person) {

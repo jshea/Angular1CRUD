@@ -22,8 +22,8 @@
       templateUrl: './components/PersonEdit/personEdit.html',
 
       controller: ['$scope',
-                   'UtilityService',
-                   function ($scope, UtilityService) {
+                   'DataService',
+                   function ($scope, DataService) {
          var self = this;
 
          /*
@@ -38,18 +38,18 @@
          });
 
          self.onAdd = function () {
-            $scope.$emit('personAdded', self.localPerson);
+            $scope.$emit('personAdd', self.localPerson);
          };
 
          self.onSave = function () {
-            $scope.$emit('personSaved', self.localPerson);
+            $scope.$emit('personUpdate', self.localPerson);
          };
 
          self.onDelete = function () {
-            $scope.$emit('personDeleted', self.localPerson);
+            $scope.$emit('personDelete', self.localPerson);
          };
 
-         self.states = UtilityService.states;
+         self.states = DataService.states;
 
       }]
 

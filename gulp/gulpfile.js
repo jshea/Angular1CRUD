@@ -31,8 +31,8 @@ var jsAppFiles = [
    "../web/scripts/controllers/viewController.js",
    "../web/scripts/filters/phoneNumber.js",
    "../web/scripts/filters/titleCase.js",
-   "../web/scripts/services/ApiService.Firebase.js",
-//   "../web/scripts/services/ApiService.Java.js",
+//   "../web/scripts/services/ApiService.Firebase.js",
+   "../web/scripts/services/ApiService.Java.js",
    "../web/scripts/services/DataService.js",
    "../web/scripts/services/UtilityService.js"
 ];

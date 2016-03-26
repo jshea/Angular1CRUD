@@ -10,11 +10,28 @@
      /**
       * Initialize/set the states value.
       *
-      * @param {type} states
       * @returns {undefined}
       */
-      self.setStates = function setStates(states) {
-         self.states = states;
+      self.initStates = function initStates () {
+         $rootScope.isLoading = true;
+
+         ApiService.getStates()
+         .then(
+            function (data) {
+               self.states = data;
+            }
+         )
+         .catch(
+            function (response) {
+               console.log('ApiService.initStates() Error: ', response);
+               UtilityService.showToastError("Web Service call failed - initStates failed.");
+            }
+         )
+         .finally(
+            function() {
+               $rootScope.isLoading = false;
+            }
+         );
       };
 
 
@@ -133,6 +150,34 @@
             function (response) {
                console.log("ApiService.personDelete() Error: ", response);
                UtilityService.showToastError('Web Service call failed - save ' + response.config.url + ' failed.');
+            }
+         )
+         .finally(
+            function() {
+               $rootScope.isLoading = false;
+            }
+         );
+      };
+
+
+     /**
+      * Delete all existing data and reload our sample data
+      * @param {type} successCallBack
+      * @returns {undefined}
+      */
+      self.loadSeedData = function loadSeedData (successCallBack) {
+         $rootScope.isLoading = true;
+
+         ApiService.loadSeedData()
+         .then(
+            function () {
+               successCallBack();
+            }
+         )
+         .catch(
+            function (response) {
+               console.log('ApiService.loadSeedData() Error: ', response);
+               UtilityService.showToastError("Web Service call failed - loadSeedData failed.");
             }
          )
          .finally(

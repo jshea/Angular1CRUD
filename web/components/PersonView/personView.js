@@ -38,11 +38,11 @@
          '</div>'
       ].join(''),
 
-      controller: ['UtilityService',
-                   function (UtilityService) {
+      controller: ['DataService',
+                   function (DataService) {
          var self = this;
 
-         self.states = UtilityService.states;
+         self.states = DataService.states;
 
       }]
 

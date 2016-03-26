@@ -15,19 +15,39 @@
 
 
       self.getAll = function getAll() {
-         return $http.get(WS_URL);
+         return $http.get(WS_URL)
+         .then(
+            function (response) {
+               return response.data;
+            }
+         );
       };
 
       self.getById = function getById(id) {
-         return $http.get(WS_URL + id);
+         return $http.get(WS_URL + id)
+         .then(
+            function (response) {
+               return response.data;
+            }
+         );
       };
 
       self.add = function add(person) {
-         return $http.post(WS_URL, person);
+         return $http.post(WS_URL, person)
+         .then(
+            function (response) {
+               return response.data;
+            }
+         );
       };
 
       self.update = function update(person) {
-         return $http.put(WS_URL, person);
+         return $http.put(WS_URL, person)
+         .then(
+            function (response) {
+               return response.data;
+            }
+         );
       };
 
       // Note delete is a JS reserved word, so we use deleteObj
@@ -41,18 +61,10 @@
       self.getStates = function getStates(successCallback, failureCallback) {
          var dataUrl = 'sampledata/states.json';   // URL for our state data
 
-         $rootScope.isLoading = true;
-
-         $http.get(dataUrl)
+         return $http.get(dataUrl)
          .then(
             function (response) {
-               successCallback(response.data);
-               $rootScope.isLoading = false;
-            },
-            function (response) {
-               console.log('httpFactory.writeLog() Error: ', response);
-               failureCallback();
-               $rootScope.isLoading = false;
+               return response.data;
             }
          );
       };
@@ -71,30 +83,29 @@
        *           });
        *        }
        */
-      self.loadSeedData = function loadSeedData(successCallback, failureCallback) {
+      self.loadSeedData = function loadSeedData() {
          var sampleDataUrl = 'sampledata/sample.json';   // URL for our sample data
          var self = this;
 
-         $rootScope.isLoading = true;
-
          // Delete the old data and load the sample data
-         $http.delete(WS_URL + 'deleteall')
+         return $http.delete(WS_URL + 'deleteall')
          .then(function() {
             // Get the sample data
             return $http.get(sampleDataUrl);
          })
-         .then(function (result) {
-            self.promises = [];
+         .then(
+            function (result) {
+               self.promises = [];
 
-            // Iterate through local data saving to server
-            for (var i = 0; i < result.data.length; i++) {
-               // Push each promise to an array and then return $q.all([promiseArray])
-               self.promises.push($http.post(WS_URL, result.data[i]));
+               // Iterate through local data saving to server
+               for (var i = 0; i < result.data.length; i++) {
+                  // Push each promise to an array and then return $q.all([promiseArray])
+                  self.promises.push(self.add(result.data[i]));
+               }
+
+               return $q.all(self.promises);
             }
-            $rootScope.isLoading = false;
-            return $q.all(self.promises);
-         })
-         .finally(successCallback, failureCallback);
+         );
       };
 
    }

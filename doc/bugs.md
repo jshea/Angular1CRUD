@@ -1,3 +1,3 @@
 ## Bug list
 
-### List is empty at completion of data reload.
+### There's bugs, this document just needs updating!

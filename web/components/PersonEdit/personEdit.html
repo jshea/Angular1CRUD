@@ -11,7 +11,6 @@
             <!-- First Name -->
             <div class="form-group" ng-class="{ 'has-error' : personForm.firstName.$invalid }">
                <label for="firstName" class="control-label col-lg-2">First Name:</label>
-
                <div class="col-lg-4">
                   <input type="text" id="firstName" name="firstName" ng-model="$ctrl.localPerson.firstName"
                          class="form-control" placeholder="First name" minlength="2" ng-maxlength="20" focus required>
@@ -71,7 +70,7 @@
 
             <!-- State -->
             <div class="form-group" ng-class="{ 'has-error' : personForm.state.$invalid }">
-               <label for="state" class="control-label col-lg-1">State:</label>
+               <label for="state" class="control-label col-lg-1">State: </label>
                <div class="col-lg-3">
                   <select name="state" id="state"
                           ng-options="item.abbreviation as item.name for item in $ctrl.states"

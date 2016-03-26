@@ -4,6 +4,7 @@
    function UtilityService(toaster) {
       var self = this;
 
+
       /*   Toasts   */
 
       self.showToastSuccess = function showToastSuccess(message) {
