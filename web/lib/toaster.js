@@ -4,7 +4,7 @@
 
     /*
      * AngularJS Toaster
-     * Version: 1.1.0
+     * Version: 1.2.1
      *
      * Copyright 2013-2016 Jiri Kavulak.
      * All Rights Reserved.
@@ -19,24 +19,10 @@
         'toasterConfig', {
             'limit': 0,                   // limits max number of toasts
             'tap-to-dismiss': true,
-
-            /* Options:
-             - Boolean false/true
-             'close-button': true
-             - object if not a boolean that allows you to
-             override showing the close button for each
-             icon-class value
-             'close-button': { 'toast-error': true, 'toast-info': false }
-             */
             'close-button': false,
             'close-html': '<button class="toast-close-button" type="button">&times;</button>',
-            'newest-on-top': true, 
-            //'fade-in': 1000,            // done in css
-            //'on-fade-in': undefined,    // not implemented
-            //'fade-out': 1000,           // done in css
-            //'on-fade-out': undefined,   // not implemented
-            //'extended-time-out': 1000,  // not implemented
-            'time-out': 5000, // Set timeOut and extendedTimeout to 0 to make it sticky
+            'newest-on-top': true,
+            'time-out': 5000,
             'icon-classes': {
                 error: 'toast-error',
                 info: 'toast-info',
@@ -194,26 +180,46 @@
                     directiveName: '@directiveName',
                     directiveData: '@directiveData'
                 },
-                replace: true,   
+                replace: true,
                 link: function (scope, elm, attrs) {
                     scope.$watch('directiveName', function (directiveName) {
                         if (angular.isUndefined(directiveName) || directiveName.length <= 0)
                             throw new Error('A valid directive name must be provided via the toast body argument when using bodyOutputType: directive');
-                        
-                        var directiveExists = $injector.has(attrs.$normalize(directiveName) + 'Directive');
-                        
-                        if (!directiveExists)
-                            throw new Error(directiveName + ' could not be found.');
-                        
+
+                        var directive;
+
+                        try {
+                            directive = $injector.get(attrs.$normalize(directiveName) + 'Directive');
+                        } catch(e) {
+                            throw new Error(directiveName + ' could not be found. ' +
+                                 'The name should appear as it exists in the markup, not camelCased as it would appear in the directive declaration,' +
+                                 ' e.g. directive-name not directiveName.');
+                        }
+
+
+                        var directiveDetails = directive[0];
+
+                        if (directiveDetails.scope !== true && directiveDetails.scope) {
+                            throw new Error('Cannot use a directive with an isolated scope. ' +
+                                'The scope must be either true or falsy (e.g. false/null/undefined). ' +
+                                'Occurred for directive ' + directiveName + '.');
+                        }
+
+                        if (directiveDetails.restrict.indexOf('A') < 0) {
+                            throw new Error('Directives must be usable as attributes. ' +
+                              'Add "A" to the restrict option (or remove the option entirely). Occurred for directive ' +
+                              directiveName + '.');
+                        }
+
                         if (scope.directiveData)
                             scope.directiveData = angular.fromJson(scope.directiveData);
-                        
+
                         var template = $compile('<div ' + directiveName + '></div>')(scope);
 
                         elm.append(template);
                     });
                 }
-            }
+            };
         }])
         .directive(
         'toasterContainer', [
@@ -316,11 +322,11 @@
                                 // if an option was not set, default to false.
                                 toast.showCloseButton = false;
                             }
-                            
+
                             if (toast.showCloseButton) {
                                 toast.closeHtml = $sce.trustAsHtml(toast.closeHtml || scope.config.closeHtml);
                             }
-                             
+
                             // Set the toast.bodyOutputType to the default if it isn't set
                             toast.bodyOutputType = toast.bodyOutputType || mergedConfig['body-output-type'];
                             switch (toast.bodyOutputType) {
@@ -342,7 +348,7 @@
                             }
 
                             scope.configureTimer(toast);
-                            
+
                             if (mergedConfig['newest-on-top'] === true) {
                                 scope.toasters.unshift(toast);
                                 if (mergedConfig['limit'] > 0 && scope.toasters.length > mergedConfig['limit']) {
@@ -354,7 +360,7 @@
                                     scope.toasters.shift();
                                 }
                             }
-                            
+
                             if (angular.isFunction(toast.onShowCallback)) {
                                 toast.onShowCallback();
                             }
@@ -372,7 +378,7 @@
 
                         function removeToast(toastIndex) {
                             var toast = scope.toasters[toastIndex];
-                            
+
                             // toast is always defined since the index always has a match
                             if (toast.timeoutPromise) {
                                 $interval.cancel(toast.timeoutPromise);
@@ -464,19 +470,19 @@
                                 }
                             };
                         }],
-                    template: 
-                        '<div id="toast-container" ng-class="[config.position, config.animation]">' + 
-                            '<div ng-repeat="toaster in toasters" class="toast" ng-class="toaster.type" ng-click="click(toaster)" ng-mouseover="stopTimer(toaster)" ng-mouseout="restartTimer(toaster)">' + 
-                                '<div ng-if="toaster.showCloseButton" ng-click="click(toaster, true)" ng-bind-html="toaster.closeHtml"></div>' + 
-                                '<div ng-class="config.title">{{toaster.title}}</div>' + 
-                                '<div ng-class="config.message" ng-switch on="toaster.bodyOutputType">' + 
-                                    '<div ng-switch-when="trustedHtml" ng-bind-html="toaster.html"></div>' + 
-                                    '<div ng-switch-when="template"><div ng-include="toaster.bodyTemplate"></div></div>' + 
+                    template:
+                        '<div id="toast-container" ng-class="[config.position, config.animation]">' +
+                            '<div ng-repeat="toaster in toasters" class="toast" ng-class="toaster.type" ng-click="click(toaster)" ng-mouseover="stopTimer(toaster)" ng-mouseout="restartTimer(toaster)">' +
+                                '<div ng-if="toaster.showCloseButton" ng-click="click(toaster, true)" ng-bind-html="toaster.closeHtml"></div>' +
+                                '<div ng-class="config.title">{{toaster.title}}</div>' +
+                                '<div ng-class="config.message" ng-switch on="toaster.bodyOutputType">' +
+                                    '<div ng-switch-when="trustedHtml" ng-bind-html="toaster.html"></div>' +
+                                    '<div ng-switch-when="template"><div ng-include="toaster.bodyTemplate"></div></div>' +
                                     '<div ng-switch-when="templateWithData"><div ng-include="toaster.bodyTemplate"></div></div>' +
-                                    '<div ng-switch-when="directive"><div directive-template directive-name="{{toaster.html}}" directive-data="{{toaster.directiveData}}"></div></div>' + 
-                                    '<div ng-switch-default >{{toaster.body}}</div>' + 
-                                '</div>' + 
-                            '</div>' + 
+                                    '<div ng-switch-when="directive"><div directive-template directive-name="{{toaster.html}}" directive-data="{{toaster.directiveData}}"></div></div>' +
+                                    '<div ng-switch-default >{{toaster.body}}</div>' +
+                                '</div>' +
+                            '</div>' +
                         '</div>'
                 };
             }]

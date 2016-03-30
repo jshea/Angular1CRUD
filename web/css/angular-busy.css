@@ -1,10 +1,10 @@
 .cg-busy{
+	bottom:0;
+	left:0;
 	position:absolute;
-	top:0px;
-	left:0px;
-	right:0px;
-	bottom:0px;
-    z-index:1001;
+	right:0;
+	top:0;
+  z-index:1001;
 }
 
 .cg-busy-animation.ng-hide-add,
@@ -17,35 +17,35 @@
 }
 .cg-busy-animation.ng-hide-remove {
     opacity:0;
-    -webkit-transform:translate(0px,-40px);
-    -moz-transform:translate(0px,-40px);
-    -ms-transform:translate(0px,-40px);
-    -o-transform:translate(0px,-40px);
-    transform:translate(0px,-40px);
+    -webkit-transform:translate(0,-40px);
+    -moz-transform:translate(0,-40px);
+    -ms-transform:translate(0,-40px);
+    -o-transform:translate(0,-40px);
+    transform:translate(0,-40px);
 }
 .cg-busy-animation.ng-hide-remove.ng-hide-remove-active {
     opacity:1;
-    -webkit-transform:translate(0px,0px);
-    -moz-transform:translate(0px,0px);
-    -ms-transform:translate(0px,0px);
-    -o-transform:translate(0px,0px);
-    transform:translate(0px,0px);
+    -webkit-transform:translate(0,0);
+    -moz-transform:translate(0,0);
+    -ms-transform:translate(0,0);
+    -o-transform:translate(0,0);
+    transform:translate(0,0);
 }
 .cg-busy-animation.ng-hide-add {
     opacity:1;
-    -webkit-transform:translate(0px,0px);
-    -moz-transform:translate(0px,0px);
-    -ms-transform:translate(0px,0px);
-    -o-transform:translate(0px,0px);
-    transform:translate(0px,0px);
+    -webkit-transform:translate(0,0);
+    -moz-transform:translate(0,0);
+    -ms-transform:translate(0,0);
+    -o-transform:translate(0,0);
+    transform:translate(0,0);
 }
 .cg-busy-animation.ng-hide-add.ng-hide-add-active {
     opacity:0;
-    -webkit-transform:translate(0px,-40px);
-    -moz-transform:translate(0px,-40px);
-    -ms-transform:translate(0px,-40px);
-    -o-transform:translate(0px,-40px);
-    transform:translate(0px,-40px);
+    -webkit-transform:translate(0,-40px);
+    -moz-transform:translate(0,-40px);
+    -ms-transform:translate(0,-40px);
+    -o-transform:translate(0,-40px);
+    transform:translate(0,-40px);
 }
 
 .cg-busy-backdrop {
@@ -75,7 +75,7 @@
 .cg-busy-default-sign{
 	display: inline-block;
 	position:relative;
-    z-index:1002;
+  z-index:1002;
 	padding-bottom: 6px;
 	color:#333333;
 	text-shadow:0 1px 1px rgba(255, 255, 255, 0.75);

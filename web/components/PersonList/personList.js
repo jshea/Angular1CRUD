@@ -18,7 +18,7 @@
              'class="table table-condensed table-bordered table-hover table-striped"',
              'show-filter="true">',
 
-            '<tr ng-repeat="person in $data">',
+            '<tr ng-repeat="person in $data | orderBy:[\'lastName\', \'firstName\']">',
                '<td id="cellName" title="\'Name\'" filter="{ lastName: \'text\'}" sortable="\'lastName\'">',
                   '<a id="cellNameLink" href="#/view/{{person.id}}">{{person.lastName}}, {{person.firstName}}</a>',
                '</td>',
