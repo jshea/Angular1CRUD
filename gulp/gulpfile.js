@@ -58,9 +58,9 @@ var jsLibFiles = [
  * override previous settings.
  */
 var cssFiles = [
-//  "../web/css/bootstrap.css",        // Bootstrap is foundational
-    "../web/css/bootstrap.paper.css",  // Paper/Material Design themed Bootstrap
-    "../web/css/app.css",              // However we may do some overrides
+    "../web/css/bootstrap.css",        // Bootstrap is foundational
+//  "../web/css/bootstrap.paper.css",  // Paper/Material Design themed Bootstrap
+    "../web/css/app.css",              // Do any overrides
     "../web/css/angular-busy.css",
     "../web/css/ng-table.css",
     "../web/css/toaster.css"

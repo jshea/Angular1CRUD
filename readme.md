@@ -2,7 +2,8 @@
 # AngularCRUD
 
 This is a sample AngularJS client application supporting both a Java middle tier/RDBMS backend as well as  Elasticsearch as the middle tier/data base.  These architectures are incorporated because
-* Elasticsearch makes a great development platform as it's the easiest to download, install, configure and run. This allows the repo to concentrate on sharing AngularJS knowledge and be the basis for business/CRUD applications.
+* [Firebase](http://firebase.com) is a commercial service that makes application and NoSQL hosting trivial and has a generous free plan.
+* [Elasticsearch](http://elastic.co) makes a great development platform as it's the easiest to download, install, configure and run. This allows the repo to concentrate on sharing AngularJS knowledge and be the basis for business/CRUD applications.
 * Java middle tier with a RDBMS backend happens to be the architecture of my day job.
 
 Platform specific notes and artifacts are contained in the doc folder.
@@ -30,7 +31,7 @@ File|Description
 ----|------------
 .gitignore | Files and folders to exclude from git. This includes build and dist folders used in building the application, bower_components which is a cached folder contains downloaded JavaScript libraries and various node_module folders containing tools dependencies.
 bower.json | Bower is a tool for fetching and saving library files used by our SPA. These are downloaded to the bower_components folder that isn't committed to git.
-build.xml | The ant build file for Netbeans. 
+build.xml | The ant build file for Netbeans.
 readme.md | This is the file you're reading!
 todo.md | Things I need to get around to.
 \doc | Documentation for this application. Subfolders contain scripts for creating the RDBMS objects, loading data and other misc documentation.
