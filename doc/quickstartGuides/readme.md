@@ -10,7 +10,6 @@ File|Description
 ----|------------
 AngularJS.md |
 Bootstrap.md |
-Bower.md |
 Git.md |
 Gulp.md |
 Jasmine.md |
@@ -19,4 +18,4 @@ Karma.md |
 NodeJS.md |
 Protractor.md |
 Resources.md |
-readem.md | This file 
+readem.md | This file

@@ -1,6 +1,10 @@
 AngularCRUD with MongoDB
 ===========
 
+## Warning - Warning - Warning
+This is really old and out of date. It's here for my archive purposes only.
+=====
+
 A learning example with AngularJS, NodeJS and MongoDB. It demonstrates CRUD operations on a simple
 data model of lastname, firstname. No actual rocket scientists were injured in the creation of this
 sample application.

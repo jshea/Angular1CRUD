@@ -48,5 +48,4 @@ Here are some documentation, tutorial and user group resources for the technolog
   * http://meetup.com/Elasticsearch-Los-Angeles/
 
 ### Hosting
-* https://heroku.com/
 * https://firebase.com/

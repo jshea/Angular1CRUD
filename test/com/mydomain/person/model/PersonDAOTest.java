@@ -13,8 +13,7 @@ import org.junit.Test;
  * @author jshea
  */
 public class PersonDAOTest {
-   // To support (future) carrying data over from one test to another,
-   // make these class level variables.
+   // To support (future) carrying data over from one test to another, make these class level variables.
    List<Person> personList;
    Person before, after;
 

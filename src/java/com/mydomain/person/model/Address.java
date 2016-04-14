@@ -96,18 +96,18 @@ public class Address implements Serializable {
    */
    @Override
    public String toString() {
-		StringBuilder sb = new StringBuilder();
+      StringBuilder sb = new StringBuilder();
 
-		sb.append("{");
+      sb.append("{");
 
-		sb.append("street:").append(street).append(", ");
-		sb.append("city:").append(city).append(", ");
-		sb.append("state:").append(state).append(", ");
-		sb.append("zip:").append(zip);
+      sb.append("street:").append(street).append(", ");
+      sb.append("city:").append(city).append(", ");
+      sb.append("state:").append(state).append(", ");
+      sb.append("zip:").append(zip);
 
-		sb.append("}");
+      sb.append("}");
 
-		return sb.toString();
+      return sb.toString();
    }
 
 }
