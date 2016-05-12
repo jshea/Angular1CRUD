@@ -20,12 +20,7 @@
                 '<span id="lastName">{{$ctrl.person.lastName}}</span>',
             '</h3>',
 
-            '<h4>Address</h4>',
-            '<span id="street">{{$ctrl.person.address.street}}</span>',
-            '<br>',
-            '<span id="city">{{$ctrl.person.address.city}}</span> ',
-            '<span id="state">{{$ctrl.person.address.state}}</span> ',
-            '<span id="zip">{{$ctrl.person.address.zip}}</span>',
+            '<address-view-component address="$ctrl.person.address"></address-view-component>',
             '<br>',
 
             '<h4>Phone</h4>',
@@ -38,13 +33,7 @@
          '</div>'
       ].join(''),
 
-      controller: ['DataService',
-                   function (DataService) {
-         var self = this;
-
-         self.states = DataService.states;
-
-      }]
+      controller: {}
 
    };
 
