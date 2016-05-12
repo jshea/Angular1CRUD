@@ -2,7 +2,7 @@
  * View component for displaying the address for a Person
  * https://toddmotto.com/stateless-angular-components
  *
- *    usage: <address-view-component address="addressData"></address-view-component>
+ *    usage: <address-view-component address="myAddressData"></address-view-component>
  */
 (function() {
 
@@ -27,9 +27,7 @@
 
       controller: ['DataService', function (DataService) {
          var self = this;
-
          self.states = DataService.states;
-
       }]
 
    };

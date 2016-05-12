@@ -21,9 +21,7 @@
       // Because the template is rather large we have it as an external file
       templateUrl: './components/PersonEdit/personEdit.html',
 
-      controller: ['$scope',
-                   'DataService',
-                   function ($scope, DataService) {
+      controller: ['$scope', 'DataService', function ($scope, DataService) {
          var self = this;
 
          /*
@@ -50,7 +48,6 @@
          };
 
          self.states = DataService.states;
-
       }]
 
    };

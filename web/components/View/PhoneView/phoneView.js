@@ -22,7 +22,7 @@
          '</div>'
       ].join(''),
 
-      controller: {}
+      controller: function () {}
 
    };
 
