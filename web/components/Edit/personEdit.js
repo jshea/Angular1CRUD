@@ -23,17 +23,18 @@
 
       controller: ['$scope', 'DataService', function ($scope, DataService) {
          var self = this;
+         self.states = DataService.states;
 
          /*
           * Because person is being loaded as we're transitioning to
           * this page? Person is being loaded asynchronously and may
           * not be loaded yet?
           */
-         $scope.$watch('$ctrl.person', function() {
-            if (self.person) {
+         this.$onChanges = function (changesObj) {
+            if (changesObj.person) {
                self.localPerson = self.person;
             }
-         });
+         };
 
          self.onAdd = function () {
             $scope.$emit('personAdd', self.localPerson);
@@ -47,7 +48,6 @@
             $scope.$emit('personDelete', self.localPerson);
          };
 
-         self.states = DataService.states;
       }]
 
    };
