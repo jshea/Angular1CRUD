@@ -33,7 +33,7 @@
           */
          $scope.$watch('$ctrl.person', function() {
             if (self.person) {
-               self.localPerson = self.person;
+               self.localPerson = JSON.parse(JSON.stringify(self.person));
             }
          });
 
