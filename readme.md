@@ -22,6 +22,8 @@ The doc folder contains documentation on the overall application, tools and tech
 [Bootstrap](http://getbootstrap.com) is a web development framework for making applications responsive and enhancing UI functionality.
 #### NetBeans
 [NetBeans](https://netbeans.org/) is an Open Source IDE that has good Java and SPA support. The latest versions has built in support for AngularJS, Cordova and many other Web application development technologies, frameworks and libraries.
+#### Visual Studio Code
+[VS Code](https://code.visualstudio.com/) is an Open Source editor that is picking up mindshare in the AngularJS (and many other) community.
 
 ## Folders and files in the application
 The following is a quick tour of the folders and files that comprise the application. Not every folder and file
@@ -30,12 +32,10 @@ is listed here, just the highlights.
 File|Description
 ----|------------
 .gitignore | Files and folders to exclude from git. This includes build and dist folders used in building the application, bower_components which is a cached folder contains downloaded JavaScript libraries and various node_module folders containing tools dependencies.
-bower.json | Bower is a tool for fetching and saving library files used by our SPA. These are downloaded to the bower_components folder that isn't committed to git.
 build.xml | The ant build file for Netbeans.
 readme.md | This is the file you're reading!
 todo.md | Things I need to get around to.
 \doc | Documentation for this application. Subfolders contain scripts for creating the RDBMS objects, loading data and other misc documentation.
-\gulp | The web application (Javascript, HTML, CSS) build system.
 \lib | Libraries for the Java\Jersey REST web service middle tier for access to a RDBMS data store. Not used when using Elasticsearch.
 \nbproject | Netbeans settings files, not normally edited by a developer.
 \src  | Java source code for the Java\Jersey REST web service middle tier for access to a RDBMS data store. Not used when using Elasticsearch.

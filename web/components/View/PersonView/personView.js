@@ -20,30 +20,34 @@
                 '<span id="lastName">{{$ctrl.person.lastName}}</span>',
             '</h3>',
 
-            '<h4>Address</h4>',
-            '<span id="street">{{$ctrl.person.address.street}}</span>',
-            '<br>',
-            '<span id="city">{{$ctrl.person.address.city}}</span> ',
-            '<span id="state">{{$ctrl.person.address.state}}</span> ',
-            '<span id="zip">{{$ctrl.person.address.zip}}</span>',
+            '<address-view-component address="$ctrl.person.address"></address-view-component>',
             '<br>',
 
-            '<h4>Phone</h4>',
-            '<b>Home</b> <span id="homePhone">{{$ctrl.person.homePhone | phoneNumber}}</span><br>',
-            '<b>Mobile</b> <span id="mobile">{{$ctrl.person.mobile | phoneNumber}}</span><br>',
+            '<phone-view-component person="$ctrl.person"></phone-view-component>',
 
             '<h4>Electronic</h4>',
             '<b>eMail</b> <span id="email">{{$ctrl.person.email}}</span><br>',
             '<b>Website</b> <span id="website">{{$ctrl.person.website}}</span><br>',
+
+            '<button type="button" id="btnEdit" class="btn btn-primary" ng-click="$ctrl.onEdit()">',
+               'Edit',
+            '</button>',
+            '<button type="button" id="btnDelete" class="btn btn-danger" ng-click="$ctrl.onDelete()">',
+               'Delete',
+            '</button>',
          '</div>'
       ].join(''),
 
-      controller: ['DataService',
-                   function (DataService) {
+      controller: ['$scope', function ($scope) {
          var self = this;
 
-         self.states = DataService.states;
+         self.onEdit = function () {
+            $scope.$emit('personEdit', self.person);
+         };
 
+         self.onDelete = function () {
+            $scope.$emit('personDelete', self.person);
+         };
       }]
 
    };

@@ -5,7 +5,7 @@
 
    'use strict';
 
-   function ViewController($routeParams, $location, DataService) {
+   function ViewController($scope, $routeParams, $location, DataService) {
 
       var self = this;     // Save a pointer to our current context
 
@@ -16,23 +16,30 @@
          }
       );
 
-      // Handler for edit button
-      self.edit = function () {
-         $location.path('/edit/' + self.person.id);
-      };
 
-      // Handler for remove button
-      self.delete = function () {
-         DataService.personDelete(self.person.id,
-            function() {
-               $location.path('/');
-            }
-         );
-      };
+      /*   Listen for events emitted from our Person Edit component   */
+
+      // Edit button was clicked - Load the edit screen
+      $scope.$on('personEdit',
+         function (event, person) {
+            $location.path('/edit/' + person.id);
+         }
+      );
+
+      // Delete button clicked - Delete person and return to main screen
+      $scope.$on('personDelete',
+         function (event, person) {
+            DataService.personDelete(person.id,
+               function() {
+                  $location.path('/');
+               }
+            );
+         }
+      );
    };
 
    // Register our controller
    angular
       .module('angularcrud')
-      .controller('ViewController', ['$routeParams', '$location', 'DataService', ViewController]);
+      .controller('ViewController', ['$scope', '$routeParams', '$location', 'DataService', ViewController]);
 })();

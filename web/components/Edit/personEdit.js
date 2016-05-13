@@ -19,23 +19,21 @@
       },
 
       // Because the template is rather large we have it as an external file
-      templateUrl: './components/PersonEdit/personEdit.html',
+      templateUrl: './components/Edit/personEdit.html',
 
-      controller: ['$scope',
-                   'DataService',
-                   function ($scope, DataService) {
+      controller: ['$scope', 'DataService', function ($scope, DataService) {
          var self = this;
+         self.states = DataService.states;
 
          /*
-          * Because person is being loaded as we're transitioning to
-          * this page? Person is being loaded asynchronously and may
-          * not be loaded yet?
+          * When the person is received, do a deep copy. It's not really a read only
+          * binding as it's passed by reference in Angular 1.x
           */
-         $scope.$watch('$ctrl.person', function() {
-            if (self.person) {
+         this.$onChanges = function (changesObj) {
+            if (changesObj.person) {
                self.localPerson = JSON.parse(JSON.stringify(self.person));
             }
-         });
+         };
 
          self.onAdd = function () {
             $scope.$emit('personAdd', self.localPerson);
@@ -48,8 +46,6 @@
          self.onDelete = function () {
             $scope.$emit('personDelete', self.localPerson);
          };
-
-         self.states = DataService.states;
 
       }]
 
