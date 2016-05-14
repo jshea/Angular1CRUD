@@ -20,10 +20,10 @@
                 '<span id="lastName">{{$ctrl.person.lastName}}</span>',
             '</h3>',
 
-            '<address-view-component address="$ctrl.person.address"></address-view-component>',
+            '<address-view-component address="$ctrl.person.addresses"></address-view-component>',
             '<br>',
 
-            '<phone-view-component person="$ctrl.person"></phone-view-component>',
+            '<phone-view-component person="$ctrl.person.phoneNumbers"></phone-view-component>',
 
             '<h4>Electronic</h4>',
             '<b>eMail</b> <span id="email">{{$ctrl.person.email}}</span><br>',

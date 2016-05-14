@@ -1,8 +1,5 @@
 /*
- * View component for displaying the address for a Person
- * https://toddmotto.com/stateless-angular-components
- *
- *    usage: <address-view-component address="myAddressData"></address-view-component>
+ * usage: <address-view-component address="addresses"></address-view-component>
  */
 (function() {
 
@@ -11,24 +8,17 @@
    // Note: No controller. We're read only with the passed in data.
    var AddressViewComponent = {
       bindings: {
-         address: '<'   // One way binding - Read Only
+         addresses: '<'   // One way binding - Read Only
       },
 
       template: [
-         '<div>',
-            '<h4>Address</h4>',
-            '<span id="street">{{$ctrl.address.street}}</span>',
-            '<br>',
-            '<span id="city">{{$ctrl.address.city}}</span> ',
-            '<span id="state">{{$ctrl.address.state}}</span> ',
-            '<span id="zip">{{$ctrl.address.zip}}</span>',
+         '<h4>Address</h4>',
+         '<div ng-repeat="address in $ctrl.addresses">',
+            '<address-view-detail-component address="address"></address-view-detail-component>',
          '</div>'
       ].join(''),
 
-      controller: ['DataService', function (DataService) {
-         var self = this;
-         self.states = DataService.states;
-      }]
+      controller: function () { }
 
    };
 
