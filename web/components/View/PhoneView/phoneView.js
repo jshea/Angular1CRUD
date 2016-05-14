@@ -8,7 +8,7 @@
    // Note: No controller. We're read only with the passed in data.
    var PhoneViewComponent = {
       bindings: {
-         person: '<'   // One way binding - Read Only
+         phoneNumbers: '<'   // One way binding - Read Only
       },
 
       template: [

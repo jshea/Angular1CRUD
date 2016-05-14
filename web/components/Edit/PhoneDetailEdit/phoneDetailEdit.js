@@ -28,7 +28,7 @@
 
               // Phone number
               '<div class="form-group">',
-                '<label for="mobilePhone" class="control-label col-lg-3">Mobile Phone:</label>',
+                '<label for="mobilePhone" class="control-label col-lg-3">Number:</label>',
                 '<div class="col-lg-4">',
                     '<input type="text" id="number" name="number" ng-model="$ctrl.phone.number"',
                           'class="form-control" placeholder="Phone number">',

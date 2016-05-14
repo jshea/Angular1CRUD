@@ -23,7 +23,7 @@
             '<address-view-component address="$ctrl.person.addresses"></address-view-component>',
             '<br>',
 
-            '<phone-view-component person="$ctrl.person.phoneNumbers"></phone-view-component>',
+            '<phone-view-component phone-numbers="$ctrl.person.phoneNumbers"></phone-view-component>',
 
             '<h4>Electronic</h4>',
             '<b>eMail</b> <span id="email">{{$ctrl.person.email}}</span><br>',
