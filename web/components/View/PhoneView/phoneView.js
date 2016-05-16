@@ -1,8 +1,5 @@
 /*
- * View component for displaying the detail for a Person
- * https://toddmotto.com/stateless-angular-components
- *
- *    usage: <phone-view-component phone="myPhoneData"></phone-view-component>
+ * usage: <phone-view-component phone-numbers="phoneNumbers"></phone-view-component>
  */
 (function() {
 
@@ -11,14 +8,13 @@
    // Note: No controller. We're read only with the passed in data.
    var PhoneViewComponent = {
       bindings: {
-         person: '<'   // One way binding - Read Only
+         phoneNumbers: '<'   // One way binding - Read Only
       },
 
       template: [
-         '<div>',
-            '<h4>Phone</h4>',
-            '<b>Home</b> <span id="homePhone">{{$ctrl.person.homePhone | phoneNumber}}</span><br>',
-            '<b>Mobile</b> <span id="mobile">{{$ctrl.person.mobile | phoneNumber}}</span><br>',
+         '<h4>Phone</h4>',
+         '<div ng-repeat="phone in $ctrl.phoneNumbers">',
+            '<phone-view-detail-component phone="phone"></phone-view-detail-component>',
          '</div>'
       ].join(''),
 

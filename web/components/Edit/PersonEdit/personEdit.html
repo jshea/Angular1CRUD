@@ -1,0 +1,122 @@
+   <!--
+      This is a responsive form. At small sizes the label will stack above its control.
+
+      Why does the formatting go bonkers at > 1200 width?
+   -->
+   <form name="personForm" class="form-inline">
+
+      <div class="row">
+         <div class="col-xs-12">
+
+            <!-- First Name -->
+            <div class="form-group" ng-class="{ 'has-error' : personForm.firstName.$invalid }">
+               <label for="firstName" class="control-label col-lg-2">First Name:</label>
+               <div class="col-lg-4">
+                  <input type="text" id="firstName" name="firstName" ng-model="$ctrl.localPerson.firstName"
+                         class="form-control" placeholder="First name" minlength="2" ng-maxlength="20" focus required>
+
+                  <!-- Error messages using angular-messages. Field is required and length between 2 & 20 chars -->
+                  <div ng-messages="personForm.firstName.$error" ng-if="personForm.firstName.$dirty" class="text-danger">
+                     <div id="firstNameErrorRequired"  ng-message="required">A first name is required</div>
+                     <div id="firstNameErrorMinLength" ng-message="minlength">First name is too short</div>
+                     <div id="firstNameErrorMaxLength" ng-message="maxlength">First name is too long</div>
+                  </div>
+
+               </div>
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group" ng-class="{ 'has-error' : personForm.lastName.$invalid }">
+               <label for="lastName" class="control-label col-lg-2">Last Name:</label>
+               <div class="col-lg-4">
+                  <input type="text" id="lastName" name="lastName" ng-model="$ctrl.localPerson.lastName"
+                         class="form-control" placeholder="Last name" minlength="2" ng-maxlength="20" required>
+
+                  <div ng-messages="personForm.lastName.$error" ng-if="personForm.lastName.$dirty" class="text-danger">
+                     <div id="lastNameErrorRequired"  ng-message="required">A last name is required</div>
+                     <div id="lastNameErrorMinLength" ng-message="minlength">Last name is too short</div>
+                     <div id="lastNameErrorMaxLength" ng-message="maxlength">Last name is too long</div>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+      <address-detail-edit-component address="$ctrl.localPerson.addresses[0]"></address-detail-edit-component>
+
+      <phone-detail-edit-component phone-numbers="$ctrl.localPerson.phoneNumbers[0]"></phone-detail-edit-component>
+
+
+      <div class="row">
+         <div class="col-xs-12">
+
+            <!-- email -->
+            <div class="form-group" ng-class="{ 'has-error' : personForm.email.$invalid }">
+               <label for="email" class="control-label col-lg-2">eMail:</label>
+               <div class="col-lg-4">
+                  <input type="email" id="email" name="email" ng-model="$ctrl.localPerson.email"
+                         class="form-control" placeholder="eMail">
+                  <div ng-messages="personForm.email.$error" ng-if="personForm.email.$dirty" class="text-danger">
+                     <div id="emailError" ng-message="email">Your email address is invalid</div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- website -->
+            <div class="form-group" ng-class="{ 'has-error' : personForm.website.$invalid }">
+               <label for="website" class="control-label col-lg-2">Website:</label>
+               <div class="col-lg-4">
+                  <input type="url" id="website" name="website" ng-model="$ctrl.localPerson.website"
+                         class="form-control" placeholder="Website">
+                  <div ng-messages="personForm.website.$error" ng-if="personForm.website.$dirty" class="text-danger">
+                     <div id="websiteError" ng-message="url">Your website is invalid</div>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+      </div>
+
+      <div class="row">
+         <p>
+      </div>
+
+      <!-- Buttons -->
+      <div class="row">
+         <div class="col-xs-12">
+
+            <!-- Show this button when $ctrl.localPerson.id is not blank. This means we're updating. -->
+            <button type="button" id="btnSave"
+                    class="btn btn-primary"
+                    ng-disabled="personForm.$invalid"
+                    ng-click="$ctrl.onSave()"
+                    ng-if="$ctrl.localPerson.id"
+            >
+               Save
+            </button>
+
+            <!-- Show this button when $ctrl.localPerson.id is blank. This means we're adding. -->
+            <button type="button" id="btnAdd"
+                    class="btn btn-primary"
+                    ng-disabled="personForm.$invalid"
+                    ng-click="$ctrl.onAdd()"
+                    ng-if="!$ctrl.localPerson.id"
+            >
+               Add
+            </button>
+
+            <!-- Show this button when $ctrl.localPerson.id is not blank. This means we're updating. -->
+            <button type="button" id="btnDelete"
+                    class="btn btn-danger"
+                    ng-click="$ctrl.onDelete()"
+                    ng-if="$ctrl.localPerson.id"
+            >
+               Delete
+            </button>
+
+         </div>
+      </div>
+
+   </form>
