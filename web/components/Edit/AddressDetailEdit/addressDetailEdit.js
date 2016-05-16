@@ -15,17 +15,17 @@
 
       template: [
          // Street
-        '<div class="row">',
-          '<div class="col-xs-12">',
-              '<div class="form-group">',
-                '<label for="street" class="control-label col-lg-3">Street:</label>',
-                '<div class="col-lg-9">',
-                    '<input type="text" id="street" name="street" class="form-control" placeholder="Street"',
+         '<div class="row">',
+            '<div class="col-xs-12">',
+               '<div class="form-group">',
+                  '<label for="street" class="control-label col-lg-3">Street:</label>',
+                  '<div class="col-lg-9">',
+                     '<input type="text" id="street" name="street" class="form-control" placeholder="Street"',
                           'ng-model="$ctrl.localPerson.address.street">',
                 '</div>',
               '</div>',
           '</div>',
-        '</div>',
+         '</div>',
 
          '<div class="row">',
             '<div class="col-xs-12">',
@@ -74,7 +74,10 @@
       '</div>'
       ].join(''),
 
-      controller: function () { }
+      controller: ['DataService', function (DataService) {
+         var self = this;
+         self.states = DataService.states;
+      }]
 
    };
 

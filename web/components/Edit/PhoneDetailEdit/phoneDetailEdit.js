@@ -10,7 +10,7 @@
    var PhoneDetailEditComponent = {
       // Note - Our data binding is two way. We're updating the local copy in our parent component.
       bindings: {
-        phone: '='
+        phoneNumbers: '='
       },
 
       template: [
@@ -21,7 +21,7 @@
               '<div class="form-group">',
                 '<label for="type" class="control-label col-lg-2">Type:</label>',
                 '<div class="col-lg-4">',
-                    '<input type="text" id="type" name="phoneType" ng-model="$ctrl.phone.type"',
+                    '<input type="text" id="type" name="phoneType" ng-model="$ctrl.phoneNumbers.type"',
                           'class="form-control" placeholder="Phone type">',
                 '</div>',
               '</div>',
@@ -30,7 +30,7 @@
               '<div class="form-group">',
                 '<label for="mobilePhone" class="control-label col-lg-3">Mobile Phone:</label>',
                 '<div class="col-lg-4">',
-                    '<input type="text" id="number" name="number" ng-model="$ctrl.phone.number"',
+                    '<input type="text" id="number" name="number" ng-model="$ctrl.phoneNumbers.number"',
                           'class="form-control" placeholder="Phone number">',
                 '</div>',
               '</div>',

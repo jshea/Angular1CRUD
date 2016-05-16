@@ -43,20 +43,12 @@
          </div>
       </div>
 
-      <!-- Street -->
-      <div class="row">
-         <div class="col-xs-12">
-            <div class="form-group">
-               <label for="street" class="control-label col-lg-3">Street:</label>
-               <div class="col-lg-9">
-                  <input type="text" id="street" name="street" class="form-control" placeholder="Street"
-                         ng-model="$ctrl.localPerson.address.street">
-               </div>
-            </div>
-         </div>
-      </div>
 
-      <phone-edit-component phoneNumbers="$ctrl.localPerson.phoneNumbers"></phone-edit-component>
+      <address-detail-edit-component address="$ctrl.localPerson.addresses[0]"></address-detail-edit-component>
+
+      <phone-detail-edit-component phone-numbers="$ctrl.localPerson.phoneNumbers[0]"></phone-detail-edit-component>
+
+
       <div class="row">
          <div class="col-xs-12">
 

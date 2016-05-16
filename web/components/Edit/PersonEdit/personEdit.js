@@ -19,7 +19,7 @@
       },
 
       // Because the template is rather large we have it as an external file
-      templateUrl: './components/Edit/personEdit.html',
+      templateUrl: './components/Edit/PersonEdit/personEdit.html',
 
       controller: ['$scope', 'DataService', function ($scope, DataService) {
          var self = this;
