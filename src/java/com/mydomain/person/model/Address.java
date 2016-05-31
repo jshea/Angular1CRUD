@@ -13,6 +13,7 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Address implements Serializable {
    private static final long serialVersionUID = 1L;
 
+   private String type = "";
    private String street = "";
    private String city   = "";
    private String state  = "";
@@ -22,11 +23,11 @@ public class Address implements Serializable {
    /**
     * Constructors
     */
-   public Address() {
-   }
+   public Address() { }
 
 
-   public Address(String street, String city, String state, String zip) {
+   public Address(String type, String street, String city, String state, String zip) {
+      setType(type);
       setStreet(street);
       setCity(city);
       setState(state);
@@ -35,12 +36,21 @@ public class Address implements Serializable {
 
 
    public Address(Address p) {
+      setType(p.getType());
       setStreet(p.getStreet());
       setCity(p.getCity());
       setState(p.getState());
       setZip(p.getZip());
    }
 
+
+   // Type
+   public String getType() {
+      return type;
+   }
+   public void setType(String val) {
+      this.type = (val != null ? val : "");
+   }
 
    // Address
    public String getStreet() {
@@ -100,10 +110,11 @@ public class Address implements Serializable {
 
       sb.append("{");
 
-      sb.append("street:").append(street).append(", ");
-      sb.append("city:").append(city).append(", ");
-      sb.append("state:").append(state).append(", ");
-      sb.append("zip:").append(zip);
+      sb.append("type:").append(type).append(",\n");
+      sb.append("street:").append(street).append(",\n");
+      sb.append("city:").append(city).append(",\n");
+      sb.append("state:").append(state).append(",\n");
+      sb.append("zip:").append(zip).append("\n");
 
       sb.append("}");
 

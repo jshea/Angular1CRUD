@@ -7,10 +7,10 @@
 
    'use strict';
 
-   var PhoneDetailEditComponent = {
-      // Note - Our data binding is two way. We're updating the local copy in our parent component.
+   var PhoneEditDetailComponent = {
+
       bindings: {
-        phoneNumbers: '='
+        phone: '='   // Two way binding - we're updating the original value in our parent
       },
 
       template: [
@@ -21,16 +21,16 @@
               '<div class="form-group">',
                 '<label for="type" class="control-label col-lg-2">Type:</label>',
                 '<div class="col-lg-4">',
-                    '<input type="text" id="type" name="phoneType" ng-model="$ctrl.phoneNumbers.type"',
+                    '<input type="text" id="type" name="phoneType" ng-model="$ctrl.phone.type"',
                           'class="form-control" placeholder="Phone type">',
                 '</div>',
               '</div>',
 
               // Phone number
               '<div class="form-group">',
-                '<label for="mobilePhone" class="control-label col-lg-3">Mobile Phone:</label>',
+                '<label for="phone" class="control-label col-lg-3">Phone:</label>',
                 '<div class="col-lg-4">',
-                    '<input type="text" id="number" name="number" ng-model="$ctrl.phoneNumbers.number"',
+                    '<input type="text" id="number" name="number" ng-model="$ctrl.phone.number"',
                           'class="form-control" placeholder="Phone number">',
                 '</div>',
               '</div>',
@@ -46,5 +46,5 @@
    // Register this component with our application module
    angular
      .module('angularcrud')
-     .component('phoneDetailEditComponent', PhoneDetailEditComponent);
+     .component('phoneEditDetailComponent', PhoneEditDetailComponent);
 })();

@@ -66,7 +66,7 @@ public class PersonDAOTest {
       before.getAddress().setCity("Pasadena");
       before.getAddress().setState("CA");
       before.getAddress().setZip("91109");
-      before.setHomePhone("7145551212");
+      before.setPhone("7145551212");
       before.setMobile("7145551212");
       before.setWebsite("http://jpl.nasa.gov");
 
@@ -97,7 +97,7 @@ public class PersonDAOTest {
       before.getAddress().setCity("Bedrock");
       before.getAddress().setState("");
       before.getAddress().setZip("00001");
-      before.setHomePhone("1");
+      before.setPhone("1");
       before.setMobile("2");
       before.setWebsite("http://fred.org");
 
