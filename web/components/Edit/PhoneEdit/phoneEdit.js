@@ -8,7 +8,7 @@
    // Note: No controller. We're read only with the passed in data.
    var PhoneEditComponent = {
       bindings: {
-         phoneNumbers: '<'   // One way binding - Read Only
+         phoneNumbers: '='   // Two way binding - we're updating the original value in our parent
       },
 
       template: [

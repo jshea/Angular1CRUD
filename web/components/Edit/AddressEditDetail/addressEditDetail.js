@@ -7,7 +7,7 @@
 
    'use strict';
 
-   var AddressDetailEditComponent = {
+   var AddressEditDetailComponent = {
       // Note - Our data binding is two way. We're updating the local copy in our parent component.
       bindings: {
         address: '='
@@ -21,7 +21,7 @@
                   '<label for="street" class="control-label col-lg-3">Street:</label>',
                   '<div class="col-lg-9">',
                      '<input type="text" id="street" name="street" class="form-control" placeholder="Street"',
-                          'ng-model="$ctrl.localPerson.address.street">',
+                          'ng-model="$ctrl.address.street">',
                 '</div>',
               '</div>',
           '</div>',
@@ -34,7 +34,7 @@
                '<div class="form-group">',
                   '<label for="city" class="control-label col-lg-1">City:</label>',
                   '<div class="col-lg-3">',
-                      '<input type="text" id="city" name="city" ng-model="$ctrl.localPerson.address.city"',
+                      '<input type="text" id="city" name="city" ng-model="$ctrl.address.city"',
                             'class="form-control" placeholder="City">',
                   '</div>',
                '</div>',
@@ -45,7 +45,7 @@
                 '<div class="col-lg-3">',
                     '<select name="state" id="state"',
                             'ng-options="item.abbreviation as item.name for item in $ctrl.states"',
-                            'ng-model="$ctrl.localPerson.address.state">',
+                            'ng-model="$ctrl.address.state">',
                     '</select>',
                 '</div>',
 
@@ -56,13 +56,13 @@
               '</div>',
 
               // Zip TODO validation should be length = 0 or 5
-              '<div class="form-group" ng-class="{ \'has-error\' : personForm.zip.$invalid }">',
+              '<div class="form-group" ng-class="{ \'has-error\' : $ctrl.personForm.zip.$invalid }">',
                 '<label for="zip" class="control-label col-lg-1">Zip:</label>',
                 '<div class="col-lg-3">',
-                    '<input type="text" id="zip" name="zip" ng-model="$ctrl.localPerson.address.zip"',
+                    '<input type="text" id="zip" name="zip" ng-model="$ctrl.address.zip"',
                           'class="form-control" placeholder="Zip" minlength="5" ng-maxlength="5">',
 
-                    '<div ng-messages="personForm.zip.$error" ng-if="personForm.zip.$dirty" class="text-danger">',
+                    '<div ng-messages="$ctrl.personForm.zip.$error" ng-if="$ctrl.personForm.zip.$dirty" class="text-danger">',
                       '<div id="zipErrorMinLength" ng-message="minlength">Zip is too short</div>',
                       '<div id="zipErrorMaxLength" ng-message="maxlength">Zip is too long</div>',
                     '</div>',
@@ -84,5 +84,5 @@
    // Register this component with our application module
    angular
      .module('angularcrud')
-     .component('addressDetailEditComponent', AddressDetailEditComponent);
+     .component('addressEditDetailComponent', AddressEditDetailComponent);
 })();

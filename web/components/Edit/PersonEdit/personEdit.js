@@ -26,7 +26,7 @@
          self.states = DataService.states;
 
          /*
-          * When the person is received, do a deep copy. It's not really a read only
+          * When the person is received, do a deep copy. '<' isn't really a read only
           * binding as it's passed by reference in Angular 1.x
           */
          this.$onChanges = function (changesObj) {
