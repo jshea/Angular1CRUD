@@ -1,10 +1,10 @@
 [
     {
         "firstName": "James",
-        "lastName": "Butt",
+        "lastName": "Dilliard",
         "addresses": [
             {
-                "type": "home",
+                "type": "Home",
                 "street": "6649 N Blue Gum St",
                 "city": "New Orleans",
                 "state": "LA",
@@ -13,11 +13,11 @@
         ],
         "phoneNumbers": [
             {
-                "type": "home",
+                "type": "Home",
                 "number": "504-621-8927"
             },
             {
-                "type": "mobile",
+                "type": "Mobile",
                 "number": "504-845-1427"
             }
         ],
@@ -29,7 +29,7 @@
         "lastName": "Darakjy",
         "addresses": [
             {
-                "type": "home",
+                "type": "Home",
                 "street": "4 B Blue Ridge Blvd",
                 "city": "Brighton",
                 "state": "MI",
@@ -38,11 +38,11 @@
         ],
         "phoneNumbers": [
             {
-                "type": "home",
+                "type": "Home",
                 "number": "810-292-9388"
             },
             {
-                "type": "mobile",
+                "type": "Mobile",
                 "number": "810-374-9840"
             }
         ],
@@ -54,7 +54,7 @@
         "lastName": "Venere",
         "addresses": [
             {
-                "type": "home",
+                "type": "Home",
                 "street": "8 W Cerritos Ave #54",
                 "city": "Bridgeport",
                 "state": "NJ",
@@ -63,11 +63,11 @@
         ],
         "phoneNumbers": [
             {
-                "type": "home",
+                "type": "Home",
                 "number": "856-636-8749"
             },
             {
-                "type": "mobile",
+                "type": "Mobile",
                 "number": "856-264-4130"
             }
         ],
@@ -79,7 +79,7 @@
         "lastName": "Paprocki",
         "addresses": [
             {
-                "type": "home",
+                "type": "Home",
                 "street": "639 Main St",
                 "city": "Anchorage",
                 "state": "AK",
@@ -88,11 +88,11 @@
         ],
         "phoneNumbers": [
             {
-                "type": "home",
+                "type": "Home",
                 "number": "907-385-4412"
             },
             {
-                "type": "mobile",
+                "type": "Mobile",
                 "number": "907-921-2010"
             }
         ],
@@ -104,7 +104,7 @@
         "lastName": "Foller",
         "addresses": [
             {
-                "type": "home",
+                "type": "Home",
                 "street": "34 Center St",
                 "city": "Hamilton",
                 "state": "OH",
@@ -113,11 +113,11 @@
         ],
         "phoneNumbers": [
             {
-                "type": "home",
+                "type": "Home",
                 "number": "513-570-1893"
             },
             {
-                "type": "mobile",
+                "type": "Mobile",
                 "number": "513-549-4561"
             }
         ],

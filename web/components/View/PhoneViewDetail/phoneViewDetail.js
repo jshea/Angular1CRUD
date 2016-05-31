@@ -13,7 +13,7 @@
 
       template: [
          '<div>',
-            '<span id="type"><b>{{$ctrl.phone.type}}</b></span>',
+            '<span id="type"><b>{{$ctrl.phone.type}}</b> </span>',
             '<span id="number">{{$ctrl.phone.number | phoneNumber}}</span><br>',
          '</div>'
       ].join(''),

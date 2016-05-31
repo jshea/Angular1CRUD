@@ -22,10 +22,9 @@ public class Person implements Serializable {
    private String  firstName  = "";
    private String  lastName   = "";
    private Address address    = new Address();
-   private String  homePhone  = "";
-   private String  mobile     = "";
+   private Phone   phone      = new Phone();
    private String  email      = "";
-   private String  website      = "";
+   private String  website    = "";
 
 
    /**
@@ -34,12 +33,10 @@ public class Person implements Serializable {
    public Person() { }
 
    public Person(String firstName, String lastName,
-                 String hPhone, String mPhone,
+                 String phone,
                  String email, String website) {
       this.firstName = firstName;
       this.lastName = lastName;
-      this.homePhone = hPhone;
-      this.mobile = mPhone;
       this.email = email;
       this.website = website;
    }
@@ -47,8 +44,8 @@ public class Person implements Serializable {
    public Person(Person p) {
       this.firstName = p.getFirstName();
       this.lastName = p.getLastName();
-      this.homePhone = p.getHomePhone();
-      this.mobile = p.getMobile();
+      this.address = p.getAddress();
+      this.phone = p.getPhone();
       this.email = p.getEmail();
       this.website = p.getWebsite();
    }
@@ -86,28 +83,12 @@ public class Person implements Serializable {
       this.address = address;
    }
 
-   // Home phone number
-   public String getHomePhone() {
-      return homePhone;
+   // Phone number
+   public Phone getPhone() {
+      return phone;
    }
-   @XmlTransient
-   public String getHomePhoneFormatted() {
-      return Util.formatPhoneNumber(homePhone);
-   }
-   public void setHomePhone(String homePhone) {
-      this.homePhone = Util.stripPhoneNumber(homePhone);
-   }
-
-   // Mobile phone number
-   public String getMobile() {
-      return mobile;
-   }
-   @XmlTransient
-   public String getMobilePhoneFormatted() {
-      return Util.formatPhoneNumber(mobile);
-   }
-   public void setMobile(String mobile) {
-      this.mobile = Util.stripPhoneNumber(mobile);
+   public void setPhone(Phone phone) {
+      this.phone = phone;
    }
 
    // Email
@@ -149,14 +130,13 @@ public class Person implements Serializable {
 
       sb.append("{");
 
-      sb.append("id:").append(id).append(", ");
-      sb.append("firstName:").append(firstName).append(", ");
-      sb.append("lastName:").append(lastName).append(", ");
-      sb.append("address:").append(address.toString()).append(", ");
-      sb.append("homePhone:").append(homePhone).append(", ");
-      sb.append("mobile:").append(mobile).append(", ");
-      sb.append("email:").append(email).append(", ");
-      sb.append("website:").append(website);
+      sb.append("id:").append(id).append(",\n");
+      sb.append("firstName:").append(firstName).append(",\n");
+      sb.append("lastName:").append(lastName).append(",\n");
+      sb.append("address:").append(address.toString()).append(",\n");
+      sb.append("phone:").append(phone).append(",\n");
+      sb.append("email:").append(email).append(",\n");
+      sb.append("website:").append(website).append("\n");
 
       sb.append("}");
 
