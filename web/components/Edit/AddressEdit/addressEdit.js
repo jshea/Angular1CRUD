@@ -5,10 +5,9 @@
 
    'use strict';
 
-   // Note: No controller. We're read only with the passed in data.
    var AddressEditComponent = {
       bindings: {
-         addresses: '<'   // One way binding - Read Only
+         addresses: '='   // Two way binding - we're updating the original value in our parent
       },
 
       template: [
@@ -16,10 +15,17 @@
          '<div ng-repeat="address in $ctrl.addresses">',
             '<address-edit-detail-component address="address"></address-edit-detail-component>',
          '</div>'
-         // Add / Delete buttons, event emitting and catching
       ].join(''),
 
-      controller: function () { }
+      controller: function () {
+         var self = this;
+
+         this.$onChanges = function (changesObj) {
+            if (changesObj.addresses) {
+               console.log(self.addresses);
+            }
+         };
+       }
 
    };
 

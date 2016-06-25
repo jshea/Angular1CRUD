@@ -16,7 +16,11 @@ var jsAppFiles = [
    "../web/scripts/config/routes.js",
    "../web/scripts/config/constants.js",            // This is before run.js as this may reset default constant values
    "../web/scripts/config/run.js",
-   "../web/components/Edit/personEdit.js",
+   "../web/components/Edit/AddressEdit/addressEdit.js",
+   "../web/components/Edit/AddressEditDetail/addressEditDetail.js",
+   "../web/components/Edit/PersonEdit/personEdit.js",
+   "../web/components/Edit/PhoneEdit/phoneEdit.js",
+   "../web/components/Edit/PhoneEditDetail/phoneEditDetail.js",
    "../web/components/List/personList.js",
    "../web/components/View/AddressView/addressView.js",
    "../web/components/View/AddressViewDetail/addressViewDetail.js",

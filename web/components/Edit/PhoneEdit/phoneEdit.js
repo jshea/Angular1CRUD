@@ -1,5 +1,5 @@
 /*
- * usage: <phone-edit-component phone="phoneNumbers"></phone-edit-component>
+ * usage: <phone-edit-component phone-numbers="phoneNumbers"></phone-edit-component>
  */
 (function() {
 
@@ -8,15 +8,14 @@
    // Note: No controller. We're read only with the passed in data.
    var PhoneEditComponent = {
       bindings: {
-         phoneNumbers: '<'   // One way binding - Read Only
+         phoneNumbers: '='   // Two way binding - we're updating the original value in our parent
       },
 
       template: [
          '<h4>Phone</h4>',
-         '<div ng-repeat="phone in phoneNumbers">',
-            '<phone-edit-detail-component phone="phoneData"></phone-edit-detail-component>',
+         '<div ng-repeat="phone in $ctrl.phoneNumbers">',
+            '<phone-edit-detail-component phone="phone"></phone-edit-detail-component>',
          '</div>'
-         // Add / Delete buttons, event emitting and catching
       ].join(''),
 
       controller: function () {}

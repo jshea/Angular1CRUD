@@ -19,14 +19,14 @@
       },
 
       // Because the template is rather large we have it as an external file
-      templateUrl: './components/Edit/personEdit.html',
+      templateUrl: './components/Edit/PersonEdit/personEdit.html',
 
       controller: ['$scope', 'DataService', function ($scope, DataService) {
          var self = this;
          self.states = DataService.states;
 
          /*
-          * When the person is received, do a deep copy. It's not really a read only
+          * When the person is received, do a deep copy. '<' isn't really a read only
           * binding as it's passed by reference in Angular 1.x
           */
          this.$onChanges = function (changesObj) {

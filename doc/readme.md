@@ -33,11 +33,6 @@ quickstartGuides | Short quickstart guides for the frameworks and tools used in 
 
 #### Install the following applications with npm:
 
-* [Bower](http://bower.io/) is a package manager that we'll use for downloading the libraries for our Angular client application.
-```
-npm install -g bower
-```
-
 * [Gulp](http://gulpjs.com/) is a task runner (like ant or make) that we'll use for building our client application, running tests and other tasks.
 ```
 npm install -g gulp

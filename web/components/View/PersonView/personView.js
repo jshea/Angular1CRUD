@@ -1,8 +1,5 @@
 /*
- * View component for displaying the detail for a Person
- * https://toddmotto.com/stateless-angular-components
- *
- *    usage: <person-view-component person="myPersonData"></person-view-component>
+ * usage: <person-view-component person="myPersonData"></person-view-component>
  */
 (function() {
 
@@ -20,7 +17,7 @@
                 '<span id="lastName">{{$ctrl.person.lastName}}</span>',
             '</h3>',
 
-            '<address-view-component address="$ctrl.person.addresses"></address-view-component>',
+            '<address-view-component addresses="$ctrl.person.addresses"></address-view-component>',
             '<br>',
 
             '<phone-view-component phone-numbers="$ctrl.person.phoneNumbers"></phone-view-component>',
@@ -32,6 +29,7 @@
             '<button type="button" id="btnEdit" class="btn btn-primary" ng-click="$ctrl.onEdit()">',
                'Edit',
             '</button>',
+            '&nbsp;&nbsp;',
             '<button type="button" id="btnDelete" class="btn btn-danger" ng-click="$ctrl.onDelete()">',
                'Delete',
             '</button>',

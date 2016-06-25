@@ -1,5 +1,5 @@
 /*
- * usage: <phone-view-component phone="phoneNumbers"></phone-view-component>
+ * usage: <phone-view-component phone-numbers="phoneNumbers"></phone-view-component>
  */
 (function() {
 
@@ -13,8 +13,8 @@
 
       template: [
          '<h4>Phone</h4>',
-         '<div ng-repeat="phone in phoneNumbers">',
-            '<phone-view-detail-component phone="phoneData"></phone-view-detail-component>',
+         '<div ng-repeat="phone in $ctrl.phoneNumbers">',
+            '<phone-view-detail-component phone="phone"></phone-view-detail-component>',
          '</div>'
       ].join(''),
 
