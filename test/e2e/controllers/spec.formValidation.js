@@ -22,7 +22,8 @@ describe("AngularCRUD form validation", function() {
     */
    beforeEach(function() {
       // Return to the entry page
-      browser.get("http://localhost:7001/angularcrud/");
+      // browser.get("http://localhost:7001/angularcrud/");
+      browser.get("https://angularcrudbootstrap.firebaseapp.com/");
 
       // Click the New Contact link
       element(by.linkText('New Contact')).click();
