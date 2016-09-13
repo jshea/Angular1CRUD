@@ -21,7 +21,8 @@ describe("AngularCRUD Happy Path", function() {
     *  same initial data.
     */
    beforeEach(function() {
-      browser.get("http://localhost:7001/angularcrud/#/load");
+      // browser.get("http://localhost:7001/angularcrud/#/load");
+      browser.get("https://angularcrudbootstrap.firebaseapp.com/#/load");
    });
 
    /*

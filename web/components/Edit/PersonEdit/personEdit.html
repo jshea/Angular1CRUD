@@ -13,7 +13,7 @@
                <label for="firstName" class="control-label col-lg-2">First Name:</label>
                <div class="col-lg-4">
                   <input type="text" id="firstName" name="firstName" ng-model="$ctrl.localPerson.firstName"
-                         class="form-control" placeholder="First name" minlength="2" ng-maxlength="20" focus required>
+                         class="form-control" placeholder="First name" minlength="2" ng-maxlength="20" autofocus required>
 
                   <!-- Error messages using angular-messages. Field is required and length between 2 & 20 chars -->
                   <div ng-messages="personForm.firstName.$error" ng-if="personForm.firstName.$dirty" class="text-danger">

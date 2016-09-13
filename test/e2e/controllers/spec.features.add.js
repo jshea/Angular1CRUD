@@ -17,12 +17,14 @@ describe("AngularCRUD adding users from a data file", function() {
 
    // Give us a known starting state of our test data
    beforeAll(function() {
-      browser.get("http://localhost:7001/angularcrud/#/load");
+      // browser.get("http://localhost:7001/angularcrud/#/load");
+      browser.get("https://angularcrudbootstrap.firebaseapp.com/#/load");
    });
    // Leave the app with the original test data. Removes data
    // added in the tests in this file.
    afterAll(function() {
-      browser.get("http://localhost:7001/angularcrud/#/load");
+      // browser.get("http://localhost:7001/angularcrud/#/load");
+      browser.get("https://angularcrudbootstrap.firebaseapp.com/#/load");
    });
 
    /*
@@ -31,7 +33,8 @@ describe("AngularCRUD adding users from a data file", function() {
     *  same initial data.
     */
    beforeEach(function() {
-      browser.get("http://localhost:7001/angularcrud/#/list");
+      // browser.get("http://localhost:7001/angularcrud/#/list");
+      browser.get("https://angularcrudbootstrap.firebaseapp.com/#/list");
    });
 
    /*
