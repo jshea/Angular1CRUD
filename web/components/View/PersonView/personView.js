@@ -21,6 +21,7 @@
             '<br>',
 
             '<phone-view-component phone-numbers="$ctrl.person.phoneNumbers"></phone-view-component>',
+
             '<h4>Electronic</h4>',
             '<b>eMail</b> <span id="email">{{$ctrl.person.email}}</span><br>',
             '<b>Website</b> <span id="website">{{$ctrl.person.website}}</span><br>',
