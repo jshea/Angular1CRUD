@@ -66,8 +66,9 @@ public class PersonDAOTest {
       before.getAddress().setCity("Pasadena");
       before.getAddress().setState("CA");
       before.getAddress().setZip("91109");
-      before.setPhone("7145551212");
-      before.setMobile("7145551212");
+      before.getAddress().setType("Work");
+      before.getPhone().setNumber("7145551212");
+      before.getPhone().setType("Work");
       before.setWebsite("http://jpl.nasa.gov");
 
       // Note add returns the saved values. This is from a select from the table.
@@ -97,8 +98,9 @@ public class PersonDAOTest {
       before.getAddress().setCity("Bedrock");
       before.getAddress().setState("");
       before.getAddress().setZip("00001");
-      before.setPhone("1");
-      before.setMobile("2");
+      before.getAddress().setType("Work");
+      before.getPhone().setNumber("1");
+      before.getPhone().setType("Work");
       before.setWebsite("http://fred.org");
 
       // Note update doesn't return the saved values.
