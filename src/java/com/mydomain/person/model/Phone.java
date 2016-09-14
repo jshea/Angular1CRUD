@@ -25,13 +25,13 @@ public class Phone implements Serializable {
 
    public Phone(String type, String number) {
       setType(type);
-      setNunber(number);
+      setNumber(number);
    }
 
 
    public Phone(Phone p) {
       setType(p.getType());
-      setNunber(p.getNumber());
+      setNumber(p.getNumber());
    }
 
 
@@ -47,7 +47,7 @@ public class Phone implements Serializable {
    public String getNumber() {
       return number;
    }
-   public void setNunber(String val) {
+   public void setNumber(String val) {
       this.number = (val != null ? Util.stripPhoneNumber(val) : "");
    }
    @XmlTransient
